@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    int real, imag;
+
+public:
+    // Default constructor
+    Complex() {
+        real = 0;
+        imag = 0;
+    }
+
+    // Parameterized constructor
+    Complex(int r, int i) {
+        real = r;
+        imag = i;
+    }
+
+    // Overload + operator
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+
+    void display() const {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1; // Calls default constructor
+    Complex c2(2, 3); // Calls parameterized constructor
+    Complex c3(4, 5); // Calls parameterized constructor
+
+    cout << "Default constructor object: ";
+    c1.display();
+
+    cout << "First complex number: ";
+    c2.display();
+
+    cout << "Second complex number: ";
+    c3.display();
+
+    Complex sum = c2 + c3;
+    cout << "Sum: ";
+    sum.display();
+
+    return 0;
+}
